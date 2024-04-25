@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     #CREATED APPS
     'core.erp',
+
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

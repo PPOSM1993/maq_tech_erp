@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href = "{% static 'lib/bootstrap-5.3.3/dist/css/bootstrap.min.css' %}" />
+
+  <!--Fontawesome-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+
+
+    <link rel="stylesheet" href = "{% static 'lib/adminlte-3.2.0/plugins/fontawesome-free/css/all.min.css' %}" />
+    <link rel="stylesheet" href = "{% static 'lib/adminlte-3.2.0/css/adminlte.min.css' %}" />
+    <link rel="stylesheet" href = "{% static 'css/style.css' %}" />
+
+    <!-- Jquery Confirm CSS -->
+    <link rel="stylesheet" href = "{% static 'lib/jquery-confirm-v3.3.4/css/jquery-confirm.css' %}" />
+    
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/LogoMAQTEC2.png' %}" />
+
+    <script src="{% static 'lib/adminlte-3.2.0/plugins/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/adminlte-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/adminlte-3.2.0/js/adminlte.min.js' %}"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="{% static 'lib/sweetalert2-9.10.0/sweetalert2.all.min.js' %}"></script>
+    <script src="{% static 'js/functions.js' %}"></script>
+
+    <!-- Jquery Confirm JS -->
+    <script src="{% static 'lib/jquery-confirm-v3.3.4/js/jquery-confirm.js' %}"></script>
+
+    <!-- Block Head -->
+    {% block head %}
+
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+
+    {% endblock %}
+  </body>
+</html>

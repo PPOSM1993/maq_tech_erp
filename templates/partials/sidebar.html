@@ -1,0 +1,94 @@
+{% load static %}
+<aside class="main-sidebar sidebar-primary elevation-4" style="background-color: #FFFDFF;">
+  <a href="" class="brand-link">
+    <img src="{% static 'img/LogoMAQTEC2.png' %}" alt="MACTECH Logo" class="brand-image elevation-3"/>
+    <span class="brand-text font-weight-light" style="color: black;">ERP Management</span>
+  </a>
+  <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <!-- <img src="{% static 'img/empty.png' %}" class="img-circle" alt="User Image" /> -->
+      </div>
+      <div class="info">
+        <p>
+          <a href="" class="d-block" style="color: black;">User:{{ request.user.username }}</a>
+        </p>
+      </div>
+    </div>
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-header" style="color:black">Módulos</li>
+
+        <li class="nav-item menu-is-opening menu-open" style="color: black;">
+          <a href="#" class="nav-link" style="color: black;">
+            <i class="fas fa-pallet"></i>
+            <p>
+              Inventario
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" style="display: block;">
+            <li class="nav-item">
+              <a href="{% url 'erp:category_list' %}" class="nav-link" style="color:black">
+                <i class="nav-icon fas fa-truck-loading"></i>
+                <p>Categorías</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'erp:replacement_list' %}" class="nav-link" style="color:black">
+                <i class="nav-icon fas fa-boxes"></i>
+                <p>Repuestos</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'erp:pay_methods_list' %}" class="nav-link" style="color:black">
+                <i class="fas fa-money-check"></i>
+                <p>Medios de Pago</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'erp:money_list' %}" class="nav-link" style="color:black">
+                <i class="fas fa-dollar-sign"></i>
+                <p>Moneda</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item menu-is-opening menu-open" style="color: black;">
+          <a href="#" class="nav-link" style="color: black;">
+            <i class="fas fa-wrench"></i>
+            <p>
+              CRM
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" style="display: block;">
+            <li class="nav-item">
+              <a href="{% url 'erp:client_list' %}" class="nav-link" style="color:black">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Clientes</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="" class="nav-link" style="color:black">
+                <i class="fas fa-file-invoice"></i>
+                <p>Generar Cotización</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="" class="nav-link" style="color:black">
+                <i class="nav-icon fas fa-shopping-cart"></i>
+                <p>Ventas</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

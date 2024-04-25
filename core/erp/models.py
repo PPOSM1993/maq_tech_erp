@@ -127,3 +127,32 @@ class Clients(models.Model):
         verbose_name_plural = 'Clientes'
         ordering = ['id']
 
+
+class PayMethods(models.Model):
+    name = models.CharField(max_length=150, verbose_name='Método de Pago', unique=True, null=False, blank=False)
+
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        user = get_current_user()
+        if user is not None:
+            if not self.pk:
+                self.user_creation = user
+            else:
+                self.user_updated = user
+        super(PayMethods, self).save()
+
+    def toJSON(self):
+        item = model_to_dict(self)
+        return item
+
+    class Meta:
+        verbose_name = 'Metodo de Pago'
+        verbose_name_plural = 'Metodos de Pago'
+        ordering = ['id']
+
+
+
+

@@ -1,0 +1,110 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Inicio
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="m-0 text-dark"><small>Tablero Principal</small></h2>
+        <hr />
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ category }}</h3>
+                <p>Categoría Grúas</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-list"></i>
+              </div>
+              <a href="{% url 'erp:category_list' %}" class="small-box-footer">Más Información<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ replacement }}</h3>
+                <p>Repuestos</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-boxes"></i>
+              </div>
+              <a href="{% url 'erp:replacement_list' %}" class="small-box-footer">Más Información<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ client }}</h3>
+                <p>Clientes</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-users"></i>
+              </div>
+              <a href="{% url 'erp:replacement_list' %}" class="small-box-footer">Más Información<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{ pay_method }}</h3>
+                <p>Medio de Pago</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-credit-card"></i>
+              </div>
+              <a href="{% url 'erp:pay_methods_list' %}" class="small-box-footer">Más Información<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ money }}</h3>
+                <p>Tipo Moneda</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <a href="{% url 'erp:money_list' %}" class="small-box-footer">Más Información<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- small box -->
+            <div class="small-box bg-light">
+              <div class="inner">
+                <h3>{{ cotizacion }}</h3>
+                <p>Cotizaciones</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-file"></i>
+              </div>
+              <a href="{% url 'erp:cotizacion_list' %}" class="small-box-footer">Más Información<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div id="container"></div>
+      </div>
+      <div class="col-lg-6">
+        <div id="container-pie"></div>
+      </div>
+    </div>
+
+    <br />
+    <div class="row"></div>
+    <br />
+  </div>
+{% endblock %}

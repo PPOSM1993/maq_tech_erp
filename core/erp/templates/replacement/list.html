@@ -1,0 +1,29 @@
+{% extends 'list.html' %}
+{% load static %}
+{% block head_list %}
+  <script src="{% static 'js/replacement/list.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+  Repuestos
+{% endblock %}
+
+{% block columns %}
+  <tr>
+    <th scope="col">Nro</th>
+    <th scope="col">Código</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Categoría</th>
+    <th scope="col">Ubicación</th>
+    <th scope="col">Stock</th>
+    <th scope="col">Opciones</th>
+  </tr>
+{% endblock %}
+
+{% block rows %}
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

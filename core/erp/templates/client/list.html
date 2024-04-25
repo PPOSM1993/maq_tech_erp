@@ -1,0 +1,21 @@
+{% extends 'list.html' %} {% load static %} {% block head_list %}
+<script src="{% static 'js/client/list.js' %}"></script>
+
+
+
+{% endblock %} 
+
+{% block title %} Clientes {% endblock  %}
+
+{% block columns %}
+<tr>
+    <th scope="col">NÚMERO</th>
+    <th scope="col">EMPRESA</th>
+    <th scope="col">RUT</th>
+    <th scope="col">GIRO COMERCIAL</th>
+    <th scope="col">TELEFONO</th>
+    <th scope="col">DIRECCIÓN</th>
+    <th scope="col">CIUDAD</th>
+    <th scope="col">OPCIONES</th>
+</tr>
+{% endblock %} {% block javascript %} {% endblock %}
