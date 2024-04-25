@@ -65,6 +65,3 @@ class Replacement(models.Model):
         verbose_name = 'Repuestos'
         verbose_name_plural = 'Repuestos'
         ordering = ['id']
-
-class ExampleModel(models.Model):
-    name = models.CharField()
