@@ -67,4 +67,4 @@ class Replacement(models.Model):
         ordering = ['id']
 
 class ExampleModel(models.Model):
-    pass
+    name = models.CharField()
