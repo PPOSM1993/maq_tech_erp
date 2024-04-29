@@ -2,7 +2,7 @@ from django.urls import path
 from core.erp.views.category.views import *
 from core.erp.views.replacement.views import *
 from core.erp.views.client.views import *
-#from core.erp.views.dashboard.views import DashboardView
+from core.erp.views.dashboard.views import DashboardView
 #from core.erp.views.sale.views import *
 from core.erp.views.pay_methods.views import *
 #from core.erp.views.cotizacion.views import *
@@ -23,6 +23,9 @@ urlpatterns = [
     path('replacement/add/', ReplacementCreateView.as_view(), name="replacement_create"),
     path('replacement/update/<int:pk>/', ReplacementUpdateView.as_view(), name="replacement_update"),
     path('replacement/delete/<int:pk>/', ReplacementDeleteView.as_view(), name="replacement_delete"),
+
+    #Dashboard
+    path('dashboard/', DashboardView.as_view(), name='dashboard'),
 
     #Money
     path('money/list', MoneyListView.as_view(), name="money_list"),

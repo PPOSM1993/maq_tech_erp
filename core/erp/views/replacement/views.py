@@ -19,7 +19,7 @@ class ReplacementListView(LoginRequiredMixin, IsSuperUserMixin, ValidatePermissi
     
     
     @method_decorator(csrf_exempt)
-    #@method_decorator(login_required)
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
@@ -58,7 +58,7 @@ class ReplacementCreateView(LoginRequiredMixin, ValidatePermissionRequiredMixin,
     url_redirect = success_url
 
     @method_decorator(csrf_exempt)
-    #@method_decorator(login_required)
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
@@ -94,7 +94,7 @@ class ReplacementUpdateView(LoginRequiredMixin, ValidatePermissionRequiredMixin,
     
 
     @method_decorator(csrf_exempt)
-    #@method_decorator(login_required)
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super().dispatch(request, *args, **kwargs)
@@ -128,7 +128,7 @@ class ReplacementDeleteView(LoginRequiredMixin, ValidatePermissionRequiredMixin,
     url_redirect = success_url
     
     @method_decorator(csrf_exempt)
-    #@method_decorator(login_required)
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super().dispatch(request, *args, **kwargs)

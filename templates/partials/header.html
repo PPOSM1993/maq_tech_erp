@@ -6,7 +6,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars" style="color: black;"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="" class="nav-link" style="color: black;">Inicio</a>
+      <a href="{% url 'erp:dashboard' %}" class="nav-link" style="color: black;">Inicio</a>
     </li>
   </ul>
   <ul class="order-1 order-md-3 navbar-no-expand navbar-nav ml-auto">
@@ -24,7 +24,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-power-off" aria-hidden="true" style="color: black;"></i></a>
+      <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-power-off" aria-hidden="true" style="color: black;"></i></a>
     </li>
   </ul>
 </nav>

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     #CREATED APPS
     'core.erp',
+    "core.login",
+    'core.user',
 
 
     'widget_tweaks',
@@ -133,3 +135,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/erp/dashboard/'
+LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_URL = '/login/'
