@@ -253,3 +253,68 @@ class ClientsForm(ModelForm):
         except Exception as e:
             data['error'] = str(e)
         return data
+
+class CotizacionForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for form in self.visible_fields():
+            form.field.widget.attrs['class'] = 'form-control'
+            form.field.widget.attrs['select'] = 'off'
+        self.fields['cli'].widget.attrs['class'] = 'form-control select2'
+        self.fields['money'].widget.attrs['class'] = 'form-control select2'
+        self.fields['pay_method'].widget.attrs['class'] = 'form-control select2'
+
+    class Meta:
+        model = Cotizacion
+        fields = '__all__'
+        widgets = {
+            'cli': Select(attrs={
+                'class': 'form-control select2',
+                'style': 'width: 100%'
+            }),
+            'date_joined': DateInput(
+                format='%Y-%m-%d',
+                attrs={
+                    'value': datetime.now().strftime('%Y-%m-%d'),
+                    'autocomplete': 'off',
+                    'class': 'form-control datetimepicker-input form-control-md',
+                    'id': 'date_joined',
+                    'data-target': '#date_joined',
+                    'data-toggle': 'datetimepicker',
+                    'readonly': True,
+                }
+            ),
+            'iva': TextInput(attrs={
+                'class': 'form-control form-control-md',
+                'readonly': True
+            }),
+            'subtotal': TextInput(attrs={
+                'readonly': True,
+                'class': 'form-control form-control-md',
+            }),
+            'pay_method': Select(attrs={
+                'class': 'form-control select2',
+                'style': 'width: 100%'
+            }),
+            'money': Select(attrs={
+                'class': 'form-control select2',
+                'style': 'width: 100%'
+            }),
+            'total': TextInput(attrs={
+                'readonly': True,
+                'class': 'form-control form-control-md',
+            })
+        }
+
+    def save(self, comit=True):
+        data = {}
+        form = super()
+        try:
+            if form.is_valid():
+                instance = form.save()
+                data = instance.toJSON()
+            else:
+                data['error'] = form.errors
+        except Exception as e:
+            data['error'] = str(e)
+        return data

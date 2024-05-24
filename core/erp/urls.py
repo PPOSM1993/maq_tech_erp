@@ -5,7 +5,7 @@ from core.erp.views.client.views import *
 from core.erp.views.dashboard.views import DashboardView
 #from core.erp.views.sale.views import *
 from core.erp.views.pay_methods.views import *
-#from core.erp.views.cotizacion.views import *
+from core.erp.views.cotizacion.views import *
 from core.erp.views.money.views import *
 
 
@@ -46,6 +46,10 @@ urlpatterns = [
     path('client/add/', ClientCreateView.as_view(), name="client_create"),
     path('client/update/<int:pk>/', ClientUpdateView.as_view(), name="client_update"),
     path('client/delete/<int:pk>/', ClientDeleteView.as_view(), name="client_delete"),
+
+    #Cotizaciones
+    #path('cotizacion/list', CotizacionListView.as_view(), name="cotizacion_list"),
+    path('cotizacion/add/', CotizacionCreateView.as_view(), name='cotizacion_create'),
 
 
 ]

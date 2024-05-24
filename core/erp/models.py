@@ -154,5 +154,57 @@ class PayMethods(models.Model):
         ordering = ['id']
 
 
+class Cotizacion(models.Model):
+    cli = models.ForeignKey(Clients, on_delete=models.PROTECT, verbose_name='Cliente')
+    date_joined = models.DateField(default=datetime.now, verbose_name='Fecha Venta')
+    subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
+    iva = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
+    total = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
+    pay_method = models.ForeignKey(PayMethods, on_delete=models.PROTECT, verbose_name='Método de Pago')
+    money = models.ForeignKey(Money, on_delete=models.PROTECT, verbose_name='Moneda')
 
+
+    def __str__(self):
+        return self.cli.names
+
+    def toJSON(self):
+        item = model_to_dict(self)
+        item['cli'] = self.cli.toJSON()
+        item['pay_method'] = self.pay_method.toJSON()
+        item['money'] = self.money.toJSON()
+        item['subtotal'] = format(self.subtotal, '.2f')
+        item['iva'] = format(self.iva, '.2f')
+        item['total'] = format(self.total, '.2f')
+        item['date_joined'] = self.date_joined.strftime('%Y-%m-%d')
+        item['det'] = [i.toJSON() for i in self.detcotizacion_set.all()]
+        return item
+
+    class Meta:
+        verbose_name = 'Cotización'
+        verbose_name_plural = 'Cotizaciones'
+        ordering = ['id']
+
+
+class DetCotizacion(models.Model):
+    
+    cotizacion = models.ForeignKey(Cotizacion, on_delete=models.CASCADE, verbose_name='Venta')
+    repl = models.ForeignKey(Replacement, on_delete=models.CASCADE, verbose_name='Repuesto(s)')
+    price = models.DecimalField(default=0.00, max_digits=9, decimal_places=0, verbose_name='Precio')
+    stock = models.IntegerField(default=0, verbose_name='Stock')
+    subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
+
+    def __str__(self):
+        return self.repl.name
+
+    def toJSON(self):
+        item = model_to_dict(self, exclude=['sale'])
+        item['repl'] = self.repl.toJSON()
+        item['price'] = format(self.price, '.2f')
+        item['subtotal'] = format(self.subtotal, '.2f')
+        return item
+
+    class Meta:
+        verbose_name = 'Detalle Cotización'
+        verbose_name_plural = 'Detalle Cotizaciones'
+        ordering = ['id']
 
