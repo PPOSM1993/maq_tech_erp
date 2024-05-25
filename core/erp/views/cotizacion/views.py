@@ -28,14 +28,14 @@ class CotizacionCreateView(LoginRequiredMixin, IsSuperUserMixin, ValidatePermiss
     template_name = 'cotizacion/create.html'
     #success_url = reverse_lazy('erp:cotizacion_list')
     #success_url = reverse_lazy('index')
-    #permission_required = 'erp.add_cotizacion'
+    permission_required = 'erp.add_cotizacion'
     #url_redirect = success_url
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
-    """def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         data = {}
         try:
             action = request.POST['action']
@@ -72,7 +72,7 @@ class CotizacionCreateView(LoginRequiredMixin, IsSuperUserMixin, ValidatePermiss
                 data['error'] = "No ha ingresado a un ninguna opción"
         except Exception as e:
             data['error'] = str(e)
-        return JsonResponse(data, safe=False)"""
+        return JsonResponse(data, safe=False)
 
 
 
@@ -82,5 +82,5 @@ class CotizacionCreateView(LoginRequiredMixin, IsSuperUserMixin, ValidatePermiss
         context['title'] = 'Nueva Cotización'
         context['entity'] = 'Cotizaciones'
         #context['list_url'] = reverse_lazy('erp:cotizacion_list')
-        #context['action'] = 'add'
+        context['action'] = 'add'
         return context

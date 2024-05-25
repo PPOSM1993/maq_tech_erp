@@ -254,6 +254,7 @@ class ClientsForm(ModelForm):
             data['error'] = str(e)
         return data
 
+
 class CotizacionForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -271,6 +272,7 @@ class CotizacionForm(ModelForm):
             'cli': Select(attrs={
                 'class': 'form-control select2',
                 'style': 'width: 100%'
+                
             }),
             'date_joined': DateInput(
                 format='%Y-%m-%d',
