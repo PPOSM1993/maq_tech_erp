@@ -1,0 +1,47 @@
+{% extends 'list.html' %} {% load static %} {% block head_list %}
+  <script src="{% static 'js/cotizacion/list.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+  Cotizaciones
+{% endblock %}
+
+{% block columns %}
+  <tr>
+    <th scope="col">REGISTRO</th>
+    <th scope="col">CLIENTE</th>
+    <th scope="col">FECHA COTIZACIÓN</th>
+    <th scope="col">TIPO DE CAMBIO (MONEDA)</th>
+    <th scope="col">FORMA DE PAGO</th>
+    <th scope="col">TOTAL</th>
+    <th scope="col">OPCIONES</th>
+  </tr>
+{% endblock %} {% block rows %}
+
+{% endblock %} {% block javascript %}
+  <!-- Modal -->
+  <div class="modal fade" id="myModalDet" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-shopping-cart"></i> Detalle Cotización</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body ">
+          <table class="table table-bordered" id="tblDet">
+            <thead>
+              <tr>
+                <th>CÓDIGO</th>
+                <th>REPUESTO(S)</th>
+                <th>CATEGORÍA(S)</th>
+                <th>PRECIO VENTA</th>
+                <th>CANTIDAD</th>
+                <th>NETO</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

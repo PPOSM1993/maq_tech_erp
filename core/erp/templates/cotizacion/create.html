@@ -23,6 +23,8 @@
   
 
   <script src="{% static 'js/cotizacion/form.js' %}"></script>
+
+  
 {% endblock %}
 
 {% block title %}
@@ -148,7 +150,7 @@
   </form>
 
   <script>
-    //vents.items.replacements={{det|safe}}
-   // vents.list();
+    vents.items.replacements={{det|safe}}
+    vents.list();
   </script>
 {% endblock %}
