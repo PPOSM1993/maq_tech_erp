@@ -1,0 +1,1 @@
+/home/administrador/Escritorio/code/python/apps/maq_tech_erp/static/lib/datatables-1.10.20/plugins/pdfmake-0.1.36/pdfmake.js

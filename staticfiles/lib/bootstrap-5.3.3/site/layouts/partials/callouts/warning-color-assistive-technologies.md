@@ -1,0 +1,1 @@
+/home/administrador/Escritorio/code/python/apps/maq_tech_erp/static/lib/bootstrap-5.3.3/site/layouts/partials/callouts/warning-color-assistive-technologies.md

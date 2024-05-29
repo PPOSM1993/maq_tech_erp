@@ -48,9 +48,10 @@ urlpatterns = [
     path('client/delete/<int:pk>/', ClientDeleteView.as_view(), name="client_delete"),
 
     #Cotizaciones
-    path('cotizacion/list', CotizacionListView.as_view(), name="cotizacion_list"),
+    path('cotizacion/list/', CotizacionListView.as_view(), name="cotizacion_list"),
     path('cotizacion/add/', CotizacionCreateView.as_view(), name='cotizacion_create'),
     path('cotizacion/update/<int:pk>/', CotizacionUpdateView.as_view(), name='cotizacion_update'),
     path('cotizacion/delete/<int:pk>/', CotizacionDeleteView.as_view(), name="cotizacion_delete"),
+    path('cotizacion/invoice/pdf/<int:pk>/', CotizacionInvoiceView.as_view(), name="cotizacion_invoice_pdf"),
 
 ]
