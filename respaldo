@@ -1,0 +1,5 @@
+                    <!--<a href="{{ list_url }}">{{ entity }}</a>-->
+
+                    {{ list_url }}
+
+                    

@@ -154,7 +154,7 @@ class PayMethods(models.Model):
         ordering = ['id']
 
 
-class Cotizacion(models.Model):
+class Sale(models.Model):
     cli = models.ForeignKey(Clients, on_delete=models.PROTECT, verbose_name='Cliente')
     date_joined = models.DateField(default=datetime.now, verbose_name='Fecha Venta')
     subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
@@ -180,14 +180,14 @@ class Cotizacion(models.Model):
         return item
 
     class Meta:
-        verbose_name = 'Cotización'
-        verbose_name_plural = 'Cotizaciones'
+        verbose_name = 'Sale'
+        verbose_name_plural = 'Sales'
         ordering = ['id']
 
 
-class DetCotizacion(models.Model):
+class DetSale(models.Model):
     
-    cotizacion = models.ForeignKey(Cotizacion, on_delete=models.CASCADE, verbose_name='Venta')
+    sale = models.ForeignKey(Sale, on_delete=models.CASCADE, verbose_name='Venta')
     repl = models.ForeignKey(Replacement, on_delete=models.CASCADE, verbose_name='Repuesto(s)')
     price = models.DecimalField(default=0.00, max_digits=9, decimal_places=0, verbose_name='Precio')
     stock = models.IntegerField(default=0, verbose_name='Stock')

@@ -23,7 +23,7 @@ class LoginFormView(LoginView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Lift Servicios - Iniciar sesión'
+        context['title'] = 'MAQ TECH - Iniciar sesión'
         return context
 
 

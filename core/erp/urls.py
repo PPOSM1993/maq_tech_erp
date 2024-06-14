@@ -3,9 +3,9 @@ from core.erp.views.category.views import *
 from core.erp.views.replacement.views import *
 from core.erp.views.client.views import *
 from core.erp.views.dashboard.views import DashboardView
-#from core.erp.views.sale.views import *
+from core.erp.views.sale.views import *
 from core.erp.views.pay_methods.views import *
-from core.erp.views.cotizacion.views import *
+#from core.erp.views.cotizacion.views import *
 from core.erp.views.money.views import *
 
 
@@ -47,11 +47,10 @@ urlpatterns = [
     path('client/update/<int:pk>/', ClientUpdateView.as_view(), name="client_update"),
     path('client/delete/<int:pk>/', ClientDeleteView.as_view(), name="client_delete"),
 
-    #Cotizaciones
-    path('cotizacion/list/', CotizacionListView.as_view(), name="cotizacion_list"),
-    path('cotizacion/add/', CotizacionCreateView.as_view(), name='cotizacion_create'),
-    path('cotizacion/update/<int:pk>/', CotizacionUpdateView.as_view(), name='cotizacion_update'),
-    path('cotizacion/delete/<int:pk>/', CotizacionDeleteView.as_view(), name="cotizacion_delete"),
-    path('cotizacion/invoice/pdf/<int:pk>/', CotizacionInvoiceView.as_view(), name="cotizacion_invoice_pdf"),
+    #Sales
+    #path('sale/list/', PayMethodListView.as_view(), name="sale_list"),
+    path('sale/list/', SaleListView.as_view(), name='sale_list'),
+    path('sale/add/', SaleCreateView.as_view(), name='sale_create'),
+    
 
 ]

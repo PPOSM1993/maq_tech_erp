@@ -255,7 +255,7 @@ class ClientsForm(ModelForm):
         return data
 
 
-class CotizacionForm(ModelForm):
+class SaleForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for form in self.visible_fields():
@@ -266,7 +266,7 @@ class CotizacionForm(ModelForm):
         self.fields['pay_method'].widget.attrs['class'] = 'form-control select2'
 
     class Meta:
-        model = Cotizacion
+        model = Sale
         fields = '__all__'
         widgets = {
             'cli': Select(attrs={

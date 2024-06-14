@@ -1,6 +1,6 @@
-var tblCotizacion;
+var tblSale;
 $(function () {
-    tblCotizacion = $('#data').DataTable({
+    tblSale = $('#data').DataTable({
         responsive: true,
         autoWidth: false,
         destroy: true,
@@ -30,10 +30,10 @@ $(function () {
                 class: 'text-center',
                 orderable: false,
                 render: function (data, type, row) {
-                    var buttons = '<a href="/erp/cotizacion/delete/' + row.id + '/" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt"></i></a> ';
-                    buttons += '<a href="/erp/cotizacion/update/' + row.id + '/" class="btn btn-warning btn-xs btn-flat"><i class="fas fa-edit"></i></a> ';
+                    var buttons = '<a href="/erp/sale/delete/' + row.id + '/" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt"></i></a> ';
+                    buttons += '<a href="/erp/sale/update/' + row.id + '/" class="btn btn-warning btn-xs btn-flat"><i class="fas fa-edit"></i></a> ';
                     buttons += '<a rel="details" class="btn btn-success btn-xs btn-flat"><i class="fas fa-search"></i></a> ';
-                    buttons += '<a href="/erp/cotizacion/invoice/pdf/' + row.id + '/" target="_blank" class="btn btn-info btn-xs btn-flat"><i class="fas fa-file-pdf"></i></a>';
+                    buttons += '<a href="/erp/sale/invoice/pdf/' + row.id + '/" target="_blank" class="btn btn-info btn-xs btn-flat"><i class="fas fa-file-pdf"></i></a>';
                     return buttons;
                 }
             },
@@ -45,8 +45,8 @@ $(function () {
 
     $('#data tbody')
         .on('click', 'a[rel="details"]', function () {
-            var tr = tblCotizacion.cell($(this).closest('td, li')).index();
-            var data = tblCotizacion.row(tr.row).data();
+            var tr = tblSale.cell($(this).closest('td, li')).index();
+            var data = tblSale.row(tr.row).data();
 
             $('#tblDet').DataTable({
                 responsive: true,

@@ -1,0 +1,155 @@
+{% extends 'list.html' %} {% load static %}
+
+
+{% load widget_tweaks %}
+
+{% block head_list %}
+  <link href="{% static 'lib/jquery-ui-1.13.2/jquery-ui.min.css' %}" rel="stylesheet" />
+  <script src="{% static 'lib/jquery-ui-1.13.2/jquery-ui.min.js' %}"></script>
+
+  <link href="{% static 'lib/select2-4.0.13/css/select2.min.css' %}" rel="stylesheet"/>
+  <link href="{% static 'lib/select2-4.0.13/css/select2-bootstrap4.min.css' %}" rel="stylesheet"/>
+  <script src="{% static 'lib/select2-4.0.13/js/select2.min.js' %}"></script>
+  <script src="{% static 'lib/select2-4.0.13/js/i18n/es.js' %}"></script>
+
+  
+  <script src="{% static 'lib/moment-2.25.3/moment-with-locales.js' %}"></script>
+  <script src="{% static 'lib/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js' %}"></script>
+  <link href="{% static 'lib/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'lib/bootstrap-touchspin-4.3.0/jquery.bootstrap-touchspin.css' %}" rel="stylesheet" />
+  <script src="{% static 'lib/bootstrap-touchspin-4.3.0/jquery.bootstrap-touchspin.js' %}"></script>
+
+  
+
+  <script src="{% static 'js/sale/form.js' %}"></script>
+
+  
+{% endblock %}
+
+{% block title %}
+  Nueva Venta
+{% endblock %}
+
+{% block content %}
+<!--cambiar el id de form a eso frmSale-->
+  <form id="frmSale" method="post">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          {% if action == 'add' %}
+            <i class="fas fa-plus"></i>
+          {% else %}
+            <i class="fas fa-edit"></i>
+          {% endif %}
+          {{ title }}
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card card-secondary">
+              <div class="card-header" style="background-color: #FFFFFF;">
+                <h3 class="card-title" style="color:black;"><i class="fas fa-boxes"></i> Detalle</h3>
+              </div>
+
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Buscador Repuestos:</label>
+
+                  <div class="input-group">
+                    <input type="text" name="search" class="form-control form-control-md" placeholder="Ingrese Repuesto" autocomplete="off" />
+                    <button type="button" class="btn btn-danger btn-flat btnClearSearch"><i class="fas fa-times"></i></button>
+
+                    <!-- <select name="search" class="form-control select2 form-control-sm" style="width: 70%;" id=""></select> -->
+                    <!-- <button class="btn btn-success btn-sm btn-flat dropdown-toggle">Opciones</button> -->
+                    <!-- type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" -->
+                  </div>
+                  <hr />
+
+                  <button type="button" class="btn btn-danger btn-flat btn-sm btnRemoveAll">
+                    <i class="fas fa-trash-alt"></i>
+                    Eliminar Items
+                  </button>
+                  <hr />
+                  <table class="table table-bordered" id="tblReplacements">
+                    <thead>
+                      <tr>
+                        <th>Eliminar</th>
+                        <th>Producto</th>
+                        <th>Código</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card card-secondary">
+              <div class="card-header" style="background-color: #FFFFFF;">
+                <h3 class="card-title" style="color: black;"><i class="fas fa-shopping-cart"></i> Datos Cliente</h3>
+              </div>
+
+              <div class="card-body">
+                <input type="hidden" name="action" value="{{ action }}" />
+                <div class="form-group">
+                  <label for="">Fecha Cotización</label>
+                  {{ form.date_joined }}
+                </div>
+
+                <div class="form-group">
+                  <label>Cliente:</label>
+                  {{ form.cli }}
+                </div>
+
+                <div class="form-group">
+                  <label>Medio de Pago:</label> {{ form.pay_method }}
+                </div>
+
+                <div class="form-group">
+                  <label>Moneda:</label>
+                  {{ form.money }}
+                </div>
+
+                <div class="form-group">
+                  <label>Total Neto:</label> {{ form.subtotal }}
+                </div>
+
+                <div class="form-group">
+                  <label>Porcentaje IVA</label> {{ form.iva }}
+                </div>
+
+                <div class="form-group">
+                  <label>Valor IVA</label>
+                  <input type="text" class="form-control form-control-md" readonly name="ivacalc" value="0.00" />
+                </div>
+
+                <div class="form-group">
+                  <label>Total:</label> {{ form.total }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-success btn-flat"><i class="fas fa-save"></i> Guardar registro</button>
+
+        <a href="{{ list_url }}" class="btn btn-danger btn-flat"><i class="fas fa-times"></i> Cancelar</a>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    //vents.items.replacements={{det|safe}}
+    //vents.list();
+  </script>
+{% endblock %}
